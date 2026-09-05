@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crap4py"
+version = "0.1.0"
+description = "CRAP (Change Risk Anti-Patterns) hotspot analyzer for Python"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "coverage>=7,<8"
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "coverage>=7,<8"]
+
+[project.scripts]
+crap4py = "crap4py.__main__:run"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.setuptools.packages.find]
+where = ["src"]
